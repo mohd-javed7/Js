@@ -16,7 +16,7 @@ A number guessing game where the user tries to guess a randomly generated number
 Fetches a random joke from a public API and displays it on the page. Great intro to working with **fetch()**.
 
 ### 💬 `JS QUESTIONS`
-Contains important **JavaScript interview questions** and answers or logic-based examples.
+Contains important **JavaScript questions** and answers or logic-based examples.
 
 ### 💭 `Quote API`
 Fetches a motivational quote using (https://zenquotes.io/api/random") and displays it dynamically.
@@ -36,7 +36,7 @@ A simple to-do list using JavaScript to add, remove, and check off tasks.
 
 1. **Clone this repository**:
    ```bash
-   git clone https://github.com/your-username/js-projects.git
+   git clone https://github.com/mohd-javed7/Js.git
 2.Open the folder in VS Code or any IDE.
 3.Use Live Server (or just open index.html inside each folder) to run the individual projects in your browser.
 
