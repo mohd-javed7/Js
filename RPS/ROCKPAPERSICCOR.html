@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper & Scissors</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: beige;
+        }
+
+        .container {
+            height: 100vh;
+            border: 2px solid black;
+        }
+
+        .container h1 {
+            text-align: center;
+            text-decoration: underline;
+        }
+
+        .box {
+            height: 60vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            gap: 10px;
+        }
+
+        .random {
+            border: 2px solid black;
+            height: 40vh;
+            width: 50%;
+            text-align: center;
+            align-content: center;
+        }
+
+        .user {
+            border: 2px solid black;
+            height: 40vh;
+            width: 50%;
+            text-align: center;
+            align-content: center;
+        }
+
+        .options {
+            display: flex;
+            justify-content: center;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 20px;
+            border-radius: 10px;
+            margin: 10px;
+            background-color: rgb(6, 130, 245);
+            border: none;
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: rgb(28, 140, 245);
+        }
+        button:active{
+            background-color: rgb(112, 183, 248);
+        }
+
+        #display {
+            margin: 0;
+            text-decoration: none;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Rock Paper & Scissors</h1>
+        <p></p>
+        <div class="box">
+            <div class="random" id="computer">Computer</div>
+            <div class="user" id="users">User</div>
+        </div>
+        <h1 id="display"></h1>
+        <div class="options">
+            <button onclick="rockImg()">Rock</button>
+            <button onclick="paperImg()">Paper</button>
+            <button onclick="scissorsImg()">Scissors</button>
+        </div>
+        <div class="win_Counter">
+            <h2>Win:</h2>
+            <p>Comp: <span id="comp-win-counter">0</span></p>
+            <p>User: <span id="user-win-counter">0</span></p>
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quotes-To-get-By</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .container {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to right, pink, rgb(226, 104, 104));
+        }
+
+        button {
+            margin: 15px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            font-weight: bold;
+            background-color: rgb(255, 182, 193);
+        }
+
+        button:hover {
+            background-color: rgb(238, 109, 130);
+            color: white;
+        }
+
+        button:active {
+            background-color: rgba(238, 109, 130, 0.514);
+        }
+
+        .box {
+            min-height: 20vh;
+            max-width: 90%;
+            padding: 20px;
+            text-align: center;
+            border: 2px solid rgb(241, 239, 239);
+            border-radius: 7px;
+            box-shadow: 10px 10px 20px 5px rgba(226, 149, 245, 0.5);
+            background: linear-gradient(to right, rgb(241, 147, 179), rgb(246, 170, 248));
+            color: white;
+            font-size: 22px;
+            font-weight: bolder;
+        }
+
+        .box p {
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <p id="quotes">" Success is not final, failure is not fatal: It is the courage to continue that counts. "
+            </p>
+        </div>
+        <button onclick="getQuotes()">Get Quote</button>
+    </div>
+    <script>
+        async function getQuotes() {
+    document.getElementById("quotes").innerText = ""; 
+    try {
+        const response = await fetch("https://zenquotes.io/api/random");
+        if (!response.ok) {
+            throw new Error("Network response was not ok");
+        }
+        const data = await response.json();
+        document.getElementById("quotes").innerText = `"${data[0].q}"\n\n- ${data[0].a}`;
+    } catch (error) {
+        document.getElementById("quotes").innerText = "Failed to fetch quote.";
+        console.error("Error fetching the quote:", error);
+    }
+}
+
+    </script>
+</body>
+
+</html>

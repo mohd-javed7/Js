@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo-list</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-image: url(directly-shot-blank-spiral-notebook-white-background_1048944-29392826.jpg);
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+        }
+
+        .box {
+            height: 70vh;
+            width: 60vw;
+            /* border: 0.15rem solid black; */
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+            gap: 10px;
+            box-shadow: 0px 3px 13px 1px;
+        }
+
+        h2 {
+            font-size: 3vw;
+            text-align: center;
+            text-decoration: underline;
+        }
+
+        #tasks {
+            font-size: 3vw;
+            box-sizing: border-box;
+            width: 70%;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 0 10px;
+        }
+
+        #newline {
+            background-color: green;
+            border: none;
+            font-size: 2.5vw;
+            border-radius: 50px;
+            font-weight: bolder;
+            color: whitesmoke;
+            padding: 1vw;
+            cursor: pointer;
+        }
+
+        #newline:hover {
+            background-color: rgb(9, 85, 9);
+        }
+
+        #newline:active {
+            background-color: rgba(0, 128, 0, 0.562);
+        }
+
+        #clearlines {
+            background-color: red;
+            border: none;
+            font-size: 2.5vw;
+            border-radius: 50px;
+            font-weight: bolder;
+            color: whitesmoke;
+            padding: 1vw;
+            cursor: pointer;
+        }
+
+        #clearlines:hover {
+            background-color: rgb(192, 22, 22);
+        }
+
+        #clearlines:active {
+            background-color: rgba(255, 0, 0, 0.589);
+        }
+
+        .separator {
+            width: 95%;
+            border-top: dashed rgba(0, 0, 0, 0.349);
+            margin: px 0;
+        }
+
+        #separator {
+            width: 95%;
+            border-top: dashed rgba(0, 0, 0, 0.349);
+            margin: px 0;
+        }
+
+        #todo {
+            align-self: start;
+            font-size: 20px;
+        }
+
+        @media (max-width : 450px) {
+            h2 {
+                font-size: 6vw;
+            }
+
+            #tasks {
+                font-size: 5vw;
+            }
+
+            #newline {
+                font-size: 4vw;
+            }
+
+            #clearlines {
+                font-size: 4vw;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box" id="tasksbox">
+            <h2>To-do List</h2>
+            <input type="text" id="tasks">
+            <div class="buttons">
+                <button id="newline" onclick="addlines()">Add line</button>
+                <button id="clearlines" onclick="clearlines()">Clear All</button>
+            </div>
+            <div id="separator"></div>
+        </div>
+    </div>
+    <script>
+        function addlines() {
+            const inputvalue = document.getElementById('tasks').value;
+            if (inputvalue == '') {
+                return alert("No tasks??")
+            }
+            document.getElementById('tasksbox').insertAdjacentHTML('beforeend', `
+  <p id="todo">
+    <input type="checkbox" name="checkbox" id="checkbox"> ${inputvalue}</p>
+  <div class="separator"></div>
+`);
+            const newCheckbox = document.querySelectorAll('#tasksbox #checkbox');
+            newCheckbox[newCheckbox.length - 1].addEventListener("change", function () {
+                if (this.checked) {
+                    this.parentElement.style.color = "green";
+                    this.parentElement.style.textDecoration = "line-through";
+                } else {
+                    this.parentElement.style.color = "black";
+                    this.parentElement.style.textDecoration = "none";
+                }
+            });
+        }
+
+
+        function clearlines() {
+            document.getElementById('tasks').value = '';
+            const tasks = document.querySelectorAll('#tasksbox #todo');
+            const separators = document.querySelectorAll('#tasksbox .separator');
+            tasks.forEach(task => task.remove());
+            separators.forEach(separator => separator.remove());
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random-User</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        h1{
+            text-align: center;
+            text-decoration: underline;
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .box{
+            padding: 10px;
+            margin: 10px;
+            text-align: center;
+        }
+        .box img{
+            border-radius: 150px;
+            margin-left: 45%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Random User</h1>
+        <div class="box">
+            <img src="" alt="profile-img" id="pfp">
+            <p id="name">Name : </p>
+            <p id="email">Email : </p>
+            <p id="error"></p>
+            <button onclick="randomuser()">Random details</button>
+
+        </div>
+    </div>
+    <script src="scirpt.js"></script>
+</body>
+</html>

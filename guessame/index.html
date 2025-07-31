@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess Game</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            height: 100vh;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        Guess The Number
+        <div class="box">
+            <label for="answer">Your answer :</label>
+            <input type="text" name="answer" id="answer" placeholder="Enter your guess">
+            <input type="submit" onclick="check()">
+            <div>
+                <label>Total Attempts taken to guess the word is : </label>
+                <label id="attemptCount">0</label>
+            </div>
+            <div>
+                <label>Hints : </label><label id="hints">Try first</label>
+            </div>
+        </div>
+    </div>
+    <script>
+        let min = 1;
+        let max = 100;
+        const answer = Math.floor(Math.random() * (max - min + 1)) + min;
+        const guess = document.getElementById('answer');
+        const hint = document.getElementById('hints');
+        const attemptCount = document.getElementById('attemptCount');
+        let attempts = 0;
+
+        function check() {
+            let guesses = Number(guess.value);
+            if (guesses > answer) {
+                attempts++;
+                attemptCount.innerHTML = attempts;
+                hint.innerHTML = 'Too high! Try again.';
+            } else if (guesses < answer) {
+                attempts++;
+                attemptCount.innerHTML = attempts;
+                hint.innerHTML = 'Too low! Try again.';
+            } else {
+                hint.innerHTML = 'Hurray! You guessed the number.';
+            }
+            guess.value = '';
+        }
+    </script>
+</body>
+
+</html>
